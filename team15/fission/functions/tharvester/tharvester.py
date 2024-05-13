@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 def main():
     #Version control purpose
     current_app.logger.info(f"Function last updated at: {datetime.datetime.now()}")
-    
+
     # Configure the API URL and parameters
     base_url = "https://data.gov.au/data/api/3/action/datastore_search"
     resource_id = "d54f7465-74b8-4fff-8653-37e724d0ebbb"
@@ -38,5 +38,6 @@ def main():
     except Exception as e:
         current_app.logger.error(f"Error posting data: {str(e)}")
         return 'Error posting data'
-    return 'OK'
+    #return 'OK'
+    return data.json()
 
