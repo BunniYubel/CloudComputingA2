@@ -6,9 +6,7 @@ module.exports = async function (context) {
         state: accident.State,
         month: accident.Month,
         year: accident.Year,
-        dayOfWeek: accident.Dayweek,
         time: accident.Time,
-        crashType: accident.CrashType,
         fatalities: accident.NumberFatalities,
         speedLimit: accident.SpeedLimit
       };
