@@ -1,0 +1,48 @@
+curl -XPUT -k 'https://127.0.0.1:9200/individual_income' \
+   --user 'elastic:elastic' \
+   --header 'Content-Type: application/json' \
+   --data '{
+    "settings": {
+        "index": {
+            "number_of_shards": 3,
+            "number_of_replicas": 1
+        }
+    },
+    "mappings": {
+        "properties": {
+            "lga_name": {
+                "type": "keyword"
+            },
+            "income_share_top_5pc_pc": {
+                "type": "float"
+            },
+            "income_share_top_1pc_pc": {
+                "type": "float"
+            },
+            "gini_coefficient_coef": {
+                "type": "float"
+            },
+            "lga_code": {
+                "type": "keyword"
+            },
+            "mean_aud": {
+                "type": "float"
+            },
+            "lowest_quartile_pc": {
+                "type": "float"
+            },
+            "median_aud": {
+                "type": "float"
+            },
+            "highest_quartile_pc": {
+                "type": "float"
+            },
+            "sum_aud": {
+                "type": "double"
+            },
+            "income_share_top_10pc_pc": {
+                "type": "float"
+            }
+        }
+    }
+}'
