@@ -1,0 +1,25 @@
+include:
+- functions/tharvester.zip
+kind: ArchiveUploadSpec
+name: functions-tharvester-zip-LkfC
+
+---
+apiVersion: fission.io/v1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: tharvester
+spec:
+  buildcmd: ./build.sh
+  deployment:
+    checksum: {}
+  environment:
+    name: python
+    namespace: ""
+  source:
+    checksum: {}
+    type: url
+    url: archive://functions-tharvester-zip-LkfC
+status:
+  buildstatus: pending
+  lastUpdateTimestamp: "2024-05-12T13:25:16Z"
