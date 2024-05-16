@@ -14,20 +14,25 @@ def post_data_server(data):
                                  headers={'Content-Type': 'application/json'},
                                  data=json.dumps(data))
         current_app.logger.info(f"Post response status: {response.status_code}, body: {response.text}")
+        return json.dumps({'status': response.status_code, 'body': response.text})
     except Exception as e:
         current_app.logger.error(f"Error posting data: {str(e)}")
-        return 'Error posting data'
+        return json.dumps({'error': str(e)})
 
 def fetch_weather_data(url):
     """Fetches weather data from the given URL and saves it locally."""
+    current_app.logger.info(f"Fetching weather data from {url}")
     headers = {
         'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0',
         'Accept': 'application/json'
     }
     response = requests.get(url, headers=headers)
+    current_app.logger.info(f"Request Headers: {response.request.headers}")
+    current_app.logger.info(f"Response Status Code: {response.status_code}")
+    current_app.logger.info(f"Response Headers: {response.headers}")
+    current_app.logger.info(f"Response Body: {response.text}")
     time.sleep(0.1)
     if response.status_code == 200:
-
         return response.json()
     else:
         raise Exception("Failed to fetch data: HTTP Status {}".format(response.status_code))
@@ -96,9 +101,10 @@ def main():
             station = str(area)
             t_url = source_url + id + "/" + id + "." + station + ".json"
             data = fetch_weather_data(t_url)
-            #save_data_locally(data, f"{id}-{station}")
-            post_data_server(data)
-            return 'OK'
+            #save_data_locally(data, f"{id}-{station}") #save the data locally
+            #return post_data_server(data) #post the data to the server
+            return data #return the data, useful for terminal debugging
+            #return 'OK'
 
 if __name__ == "__main__":
     main()
