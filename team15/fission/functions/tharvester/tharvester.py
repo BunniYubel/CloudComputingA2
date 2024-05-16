@@ -38,6 +38,6 @@ def main():
     except Exception as e:
         current_app.logger.error(f"Error posting data: {str(e)}")
         return 'Error posting data'
-    #return 'OK'
-    return data.json()
+    return 'OK'
+    #return data.json()
 
