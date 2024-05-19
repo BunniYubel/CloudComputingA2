@@ -12,7 +12,7 @@ def main():
         basic_auth=('elastic', 'elastic')
     )
     #open all states income json file
-    with open('all_states_income.json', 'r') as file:
+    with open('filtered_NSW_VIC_income.json', 'r') as file:
         individual_income = json.load(file)
     
     logger.info(f'Observations to add: {individual_income}')

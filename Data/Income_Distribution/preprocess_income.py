@@ -13,7 +13,9 @@ preprocess_filtered_NSW_VIC_data = [feature["properties"] for feature in filtere
 # print(filtered_NSW_VIC_data)
 
 with open('all_states_income.json', 'w') as file:
-    json.dump(preprocess_info, file)
+    for item in preprocess_info:
+        file.write(json.dumps(item) + '\n')
 
 with open('filtered_NSW_VIC_income.json', 'w') as file:
-    json.dump(preprocess_filtered_NSW_VIC_data, file)
+    for item in preprocess_filtered_NSW_VIC_data:
+        file.write(json.dumps(item) + '\n')
