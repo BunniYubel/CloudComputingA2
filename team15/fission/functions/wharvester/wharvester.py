@@ -1,4 +1,5 @@
 import logging, json, requests, socket
+import stat
 import time
 from flask import current_app
 import os
@@ -109,14 +110,17 @@ def main():
             station = str(area)
             t_url = source_url + id + "/" + id + "." + station + ".json"
             data = fetch_weather_data(t_url)
-            for obs in data['observations']['data']:
-                obs_id = generate_id(obs)
-                # Save or post data with the generated id
-                # Example: save_data_locally(obs, f"{obs_id}.json")
-                post_data_server(obs)
-                total_observations += 1
-                # For debugging
-                # return obs
-            current_app.logger.info(f"Got {len(data['observations']['data'])} observations from {area}. Total: {total_observations}")
+            # for obs in data['observations']['data']:
+            #     obs_id = generate_id(obs)
+            #     # Save or post data with the generated id
+            #     # Example: save_data_locally(obs, f"{obs_id}.json")
+                
+                
+            #     # For debugging
+            #     # return obs
+            station_observations = data['observations']['data']
+            post_data_server(station_observations)
+            total_observations += len(station_observations)
+            current_app.logger.info(f"Got {len(station_observations)} observations from {area}. Total: {total_observations}")
 if __name__ == "__main__":
     main()
