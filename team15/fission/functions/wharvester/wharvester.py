@@ -13,25 +13,25 @@ def post_data_server(data):
         response = requests.post(url='http://router.fission/enqueue/weather',
                                  headers={'Content-Type': 'application/json'},
                                  data=json.dumps(data))
-        current_app.logger.info(f"Post response status: {response.status_code}, body: {response.text}")
+        # current_app.logger.info(f"Post response status: {response.status_code}, body: {response.text}")
         return json.dumps({'status': response.status_code, 'body': response.text})
     except Exception as e:
-        current_app.logger.error(f"Error posting data: {str(e)}")
+        # current_app.logger.error(f"Error posting data: {str(e)}")
         return json.dumps({'error': str(e)})
 
 def fetch_weather_data(url):
     """Fetches weather data from the given URL and saves it locally."""
-    current_app.logger.info(f"Fetching weather data from {url}")
+    # current_app.logger.info(f"Fetching weather data from {url}")
     headers = {
         'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0',
         'Accept': 'application/json'
     }
     response = requests.get(url, headers=headers)
-    current_app.logger.info(f"Request Headers: {response.request.headers}")
-    current_app.logger.info(f"Response Status Code: {response.status_code}")
-    current_app.logger.info(f"Response Headers: {response.headers}")
-    current_app.logger.info(f"Response Body: {response.text}")
-    time.sleep(0.1)
+    # current_app.logger.info(f"Request Headers: {response.request.headers}")
+    # current_app.logger.info(f"Response Status Code: {response.status_code}")
+    # current_app.logger.info(f"Response Headers: {response.headers}")
+    # current_app.logger.info(f"Response Body: {response.text}")
+    # time.sleep(0.1)
     if response.status_code == 200:
         return response.json()
     else:
@@ -41,6 +41,8 @@ def generate_id(obs):
     return f'{obs["wmo"]}-{obs["aifstime_utc"]}'
 
 def main():
+    current_app.logger.info("start!")
+    # return "early end!"
     directory = "Data"
     count = 0
     if not os.path.exists(directory):
@@ -96,6 +98,7 @@ def main():
     
     total_observations = 0
     for id in (vic_id, syd_id):
+        current_app.logger.info("inside!")
         if id == vic_id:
             loc = "VIC"
             station = victoria_station
@@ -111,9 +114,9 @@ def main():
                 # Save or post data with the generated id
                 # Example: save_data_locally(obs, f"{obs_id}.json")
                 # Example: post_data_server(obs)
-                total_observations += len(obs)
+                total_observations += 1
                 # For debugging
                 # return obs
-            current_app.logger.info(f'Got {data['observations']['data']} observations from {area}. Total: {total_observations}')
+            current_app.logger.info(f"Got {len(data['observations']['data'])} observations from {area}. Total: {total_observations}")
 if __name__ == "__main__":
     main()
