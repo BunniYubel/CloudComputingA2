@@ -12,7 +12,7 @@ spec:
     name: addobservations
     type: name
   maxReplicaCount: 300
-  maxRetries: 3S
+  maxRetries: 3
   messageQueueType: kafka
   metadata:
     bootstrapServers: my-cluster-kafka-bootstrap.kafka.svc:9092
