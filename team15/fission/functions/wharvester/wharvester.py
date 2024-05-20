@@ -93,7 +93,8 @@ def main():
                         '94831', '94827', '94870', '94935', '95918', '94871', '94826', '94830', '94888', '99054',
                         '99812', '95831', '99900', '95866', '99795', '95827', '94892', '94884', '94847', '94914',
                         '94693']
-
+    
+    total_observations = 0
     for id in (vic_id, syd_id):
         if id == vic_id:
             loc = "VIC"
@@ -110,9 +111,9 @@ def main():
                 # Save or post data with the generated id
                 # Example: save_data_locally(obs, f"{obs_id}.json")
                 # Example: post_data_server(obs)
-                current_app.logger.info(f'Generated ID: {obs_id}')
+                total_observations += len(obs)
                 # For debugging
-                return obs
-
+                # return obs
+            current_app.logger.info(f'Got {data['observations']['data']} observations from {area}. Total: {total_observations}')
 if __name__ == "__main__":
     main()
