@@ -4,6 +4,7 @@ module.exports = async function (context) {
     const observations = context.request.body.observations.data.map((observation) => {
         return {
             station_name: observation.name,
+            history_product: observation.history_product,
             latitude: observation.lat,
             longitude: observation.lon,
             temperature: observation.air_temp,
