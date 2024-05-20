@@ -8,15 +8,27 @@ def main():
         verify_certs= False,
         basic_auth=('elastic', 'elastic')
     )
-
-    current_app.logger.info(f'Observations to add:  {request.get_json(force=True)}')
+    elasticsearch_index_name = "weather-data1"
+    index_config = {
+        "settings": {
+            "number_of_shards": 3,
+            "number_of_replicas": 1
+        }
+    }
+    if not client.indices.exists(index=elasticsearch_index_name):
+    # Create the index with the specified configuration
+        client.indices.create(index=elasticsearch_index_name, body=index_config)
+    
+    
+    
+    current_app.logger.info(f'Observations to add1:  {request.get_json(force=True)[0]}')
 
     for obs in request.get_json(force=True):
         res = client.index(
-            index='weather-data',
+            index=elasticsearch_index_name,
             id=f'{obs["station_name"]}-{obs["timestamp"]}',
-            body=obs
+            document=obs
         )
-        current_app.logger.info(f'Indexed observation {obs["station_name"]}-{obs["timestamp"]}')
+        current_app.logger.info(f'Indexed observation: {obs["station_name"]}-{obs["timestamp"]}')
 
     return 'ok'

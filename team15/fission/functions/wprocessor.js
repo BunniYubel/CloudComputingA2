@@ -2,16 +2,20 @@ module.exports = async function (context) {
     console.log(`Processed a weather data observation`);
 
     // Log the entire request body to debug the structure
-    console.log('Request body:', context.request.body);
+    console.log('Request values01:', Object.values(context.request.body).length);
+    // console.log('Request data:', context.request.data);
+    console.log("observatuibs: ", Object.values(context.request.body)[0].name)
 
-    if (!context.request.body || !context.request.body.observations || !context.request.body.observations.data) {
+    if (!context.request.body) {
+        console.log('Invalid request format');
         return {
             status: 400,
             body: 'Invalid request format'
         };
     }
+    
 
-    const observations = context.request.body.observations.data.map((observation) => {
+    const observations = Object.values(context.request.body).map((observation) => {
         return {
             station_name: observation.name,
             history_product: observation.history_product,
@@ -32,6 +36,8 @@ module.exports = async function (context) {
             timestamp: observation.local_date_time_full
         };
     });
+    console.log("observations:", observations.station_name )
+    
 
     return {
         status: 200,

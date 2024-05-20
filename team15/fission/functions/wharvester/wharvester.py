@@ -121,6 +121,6 @@ def main():
             station_observations = data['observations']['data']
             post_data_server(station_observations)
             total_observations += len(station_observations)
-            current_app.logger.info(f"Got {len(station_observations)} observations from {area}. Total: {total_observations}")
+            current_app.logger.info(f"Got {len(station_observations)} observations from {area}. Total: {total_observations}!1")
 if __name__ == "__main__":
     main()
