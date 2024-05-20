@@ -11,14 +11,14 @@ spec:
     functionweights: null
     name: wprocessor
     type: name
-  maxReplicaCount: 100
+  maxReplicaCount: 300
   maxRetries: 3
   messageQueueType: kafka
   metadata:
     bootstrapServers: my-cluster-kafka-bootstrap.kafka.svc:9092
     consumerGroup: my-group
-  minReplicaCount: 0
+  minReplicaCount: 10
   mqtkind: keda
-  pollingInterval: 5
+  pollingInterval: 1
   respTopic: observations
   topic: weather

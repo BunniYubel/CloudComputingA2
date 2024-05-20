@@ -1,5 +1,7 @@
 include:
-- functions/addobservations.zip
+- ./functions/addobservations/addobservations.py
+- ./functions/addobservations/requirements.txt
+- ./functions/addobservations/build.sh
 kind: ArchiveUploadSpec
 name: functions-addobservations-zip-SKXL
 

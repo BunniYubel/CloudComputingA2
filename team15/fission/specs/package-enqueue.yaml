@@ -1,5 +1,7 @@
 include:
-- ./functions/enqueue.zip
+- ./functions/enqueue/enqueue.py
+- ./functions/enqueue/requirements.txt
+- ./functions/enqueue/build.sh
 kind: ArchiveUploadSpec
 name: functions-enqueue-zip-q3Rk
 
