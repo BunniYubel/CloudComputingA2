@@ -1,7 +1,9 @@
 include:
-- functions/wharvester.zip
+- ./functions/wharvester/wharvester.py
+- ./functions/wharvester/requirements.txt
+- ./functions/wharvester/build.sh
 kind: ArchiveUploadSpec
-name: functions-wharvester-zip-yvyA
+name: functions-wharvester-wharvester-py-NyBr
 
 ---
 apiVersion: fission.io/v1
@@ -19,7 +21,7 @@ spec:
   source:
     checksum: {}
     type: url
-    url: archive://functions-wharvester-zip-yvyA
+    url: archive://functions-wharvester-wharvester-py-NyBr
 status:
   buildstatus: pending
-  lastUpdateTimestamp: "2024-05-16T03:29:11Z"
+  lastUpdateTimestamp: "2024-05-20T07:12:29Z"
