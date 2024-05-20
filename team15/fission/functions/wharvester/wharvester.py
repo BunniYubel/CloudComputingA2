@@ -10,7 +10,7 @@ def save_data_locally(data, filename):
 
 def post_data_server(data):
     try:
-        response = requests.post(url='http://router.fission/enqueue/weather_data',
+        response = requests.post(url='http://router.fission/enqueue/weather',
                                  headers={'Content-Type': 'application/json'},
                                  data=json.dumps(data))
         current_app.logger.info(f"Post response status: {response.status_code}, body: {response.text}")
@@ -36,6 +36,10 @@ def fetch_weather_data(url):
         return response.json()
     else:
         raise Exception("Failed to fetch data: HTTP Status {}".format(response.status_code))
+
+def generate_id(obs):
+    return f'{obs["wmo"]}-{obs["aifstime_utc"]}'
+
 def main():
     directory = "Data"
     count = 0
@@ -101,10 +105,14 @@ def main():
             station = str(area)
             t_url = source_url + id + "/" + id + "." + station + ".json"
             data = fetch_weather_data(t_url)
-            #save_data_locally(data, f"{id}-{station}") #save the data locally
-            #return post_data_server(data) #post the data to the server
-            return data #return the data, useful for terminal debugging
-            #return 'OK'
+            for obs in data['observations']['data']:
+                obs_id = generate_id(obs)
+                # Save or post data with the generated id
+                # Example: save_data_locally(obs, f"{obs_id}.json")
+                # Example: post_data_server(obs)
+                current_app.logger.info(f'Generated ID: {obs_id}')
+                # For debugging
+                return obs
 
 if __name__ == "__main__":
     main()

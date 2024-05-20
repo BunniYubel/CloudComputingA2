@@ -2,9 +2,9 @@ apiVersion: fission.io/v1
 kind: TimeTrigger
 metadata:
   creationTimestamp: null
-  name: tenminute
+  name: weather-ingest-1min
 spec:
-  cron: '@every 10m'
+  cron: '@every 1m'
   functionref:
     functionweights: null
     name: wharvester
