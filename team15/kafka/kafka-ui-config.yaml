@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kafka-ui-config
+  namespace: kafka-ui
+data:
+  application.yml: |
+    kafka:
+      clusters:
+        - name: local
+          bootstrapServers: "my-cluster-kafka-bootstrap.kafka.svc:9092"

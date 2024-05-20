@@ -33,10 +33,10 @@ spec:
   InvokeStrategy:
     ExecutionStrategy:
       ExecutorType: poolmgr
-      MaxScale: 0
-      MinScale: 0
+      MaxScale: 5 #max. pod number
+      MinScale: 1 #min. pod number
       SpecializationTimeout: 120
-      TargetCPUPercent: 0
+      TargetCPUPercent: 80 #target CPU utilization for HPA scaling
     StrategyType: execution
   concurrency: 500
   environment:

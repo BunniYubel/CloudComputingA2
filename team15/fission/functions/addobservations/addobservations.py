@@ -14,9 +14,9 @@ def main():
     for obs in request.get_json(force=True):
         res = client.index(
             index='weather-data',
-            id=f'{obs["stationid"]}-{obs["timestamp"]}',
+            id=f'{obs["station_name"]}-{obs["timestamp"]}',
             body=obs
         )
-        current_app.logger.info(f'Indexed observation {obs["stationid"]}-{obs["timestamp"]}')
+        current_app.logger.info(f'Indexed observation {obs["station_name"]}-{obs["timestamp"]}')
 
     return 'ok'

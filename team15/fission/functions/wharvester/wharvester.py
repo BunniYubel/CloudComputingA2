@@ -113,7 +113,7 @@ def main():
                 obs_id = generate_id(obs)
                 # Save or post data with the generated id
                 # Example: save_data_locally(obs, f"{obs_id}.json")
-                # Example: post_data_server(obs)
+                post_data_server(obs)
                 total_observations += 1
                 # For debugging
                 # return obs

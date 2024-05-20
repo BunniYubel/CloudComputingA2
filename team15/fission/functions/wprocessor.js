@@ -1,6 +1,16 @@
 module.exports = async function (context) {
     console.log(`Processed a weather data observation`);
 
+    // Log the entire request body to debug the structure
+    console.log('Request body:', context.request.body);
+
+    if (!context.request.body || !context.request.body.observations || !context.request.body.observations.data) {
+        return {
+            status: 400,
+            body: 'Invalid request format'
+        };
+    }
+
     const observations = context.request.body.observations.data.map((observation) => {
         return {
             station_name: observation.name,
