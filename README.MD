@@ -12,7 +12,6 @@
 ---
 
 ### Fission 
-**Explanation:**
 [Details]
 
 [GitHub Repository](https://github.com/BunniYubel/CloudComputingA2/tree/main/comp90024/fission)
@@ -20,7 +19,6 @@
 ---
 
 ### Elastic Search 
-**Explanation:**
 [Details]
 
 [GitHub Repository](https://github.com/BunniYubel/CloudComputingA2/tree/main/comp90024/elastic)
@@ -28,15 +26,14 @@
 ---
 
 ### Data Preparation
-**Explanation:**
 [Details]
 
+[GitHub Repository](https://github.com/BunniYubel/CloudComputingA2/tree/main/Datay)
 [GitHub Repository](https://github.com/BunniYubel/CloudComputingA2/blob/main/find_station_json.py)
 
 ---
 
 ### Data Analysis
-**Explanation:**
 [Details]
 
 [GitHub Repository](https://github.com/BunniYubel/CloudComputingA2/blob/main/Data_Visualization.ipynb)
