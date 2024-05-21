@@ -23,7 +23,7 @@
 **Explanation:**
 [Details]
 
-[GitHub Repository]https://github.com/BunniYubel/CloudComputingA2/tree/main/comp90024/elastic)
+[GitHub Repository](https://github.com/BunniYubel/CloudComputingA2/tree/main/comp90024/elastic)
 
 ---
 
