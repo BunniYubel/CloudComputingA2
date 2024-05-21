@@ -16,8 +16,8 @@ spec:
   environment:
     name: python
     namespace: ""
-  functionTimeout: 60
-  idletimeout: 120
+  functionTimeout: 120
+  idletimeout: 240
   package:
     functionName: wharvester.main
     packageref:
