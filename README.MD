@@ -1,7 +1,6 @@
 # COMP90024 Cluster and Cloud Computing
 ![The University of Melbourne](https://www.silverstoneedge.com.au/wp-content/uploads/2019/08/logo-melbourne-uni.png)
-## Group 15
-## Assignment 2: Big Data Analytics on the Cloud
+## Group 15 Assignment 2: Big Data Analytics on the Cloud
 
 ### Members:
 - **Matthias** - 1433323 - cheomc@student.unimelb.edu.au
