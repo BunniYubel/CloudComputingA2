@@ -11,7 +11,7 @@
 
 ---
 
-### Part. Fission
+### Fission 
 **Explanation:**
 [Details]
 
@@ -19,7 +19,7 @@
 
 ---
 
-### Part. Elastic Search
+### Elastic Search 
 **Explanation:**
 [Details]
 
@@ -27,7 +27,7 @@
 
 ---
 
-### Part. Data Preparation
+### Data Preparation
 **Explanation:**
 [Details]
 
@@ -35,7 +35,7 @@
 
 ---
 
-### Part. Data Analysis
+### Data Analysis
 **Explanation:**
 [Details]
 
