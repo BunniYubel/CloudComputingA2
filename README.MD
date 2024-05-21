@@ -32,7 +32,15 @@
 [Link to Weather Station ID Finder ](https://github.com/BunniYubel/CloudComputingA2/blob/main/find_station_json.py) 
 
 ---
-
+ 
 ### Data Analysis
 
 [Link to Jupyter Notebook ](https://github.com/BunniYubel/CloudComputingA2/blob/main/Data_Visualization.ipynb)
+
+---
+
+### Documentation and Report
+
+[Link to Documentation](https://unimelbcloud-my.sharepoint.com/:w:/g/personal/cheomc_student_unimelb_edu_au/ETgTHbr69OhImq2xUGR99XABta-2ssyyXbMqks3MEEskZA?e=wVskOA) 
+
+
