@@ -1,5 +1,5 @@
 # COMP90024 Cluster and Cloud Computing
-
+![The University of Melbourne](https://www.silverstoneedge.com.au/wp-content/uploads/2019/08/logo-melbourne-uni.png)
 ## Assignment 2 Report: Big Data Analytics on the Cloud
 
 ### Members:
