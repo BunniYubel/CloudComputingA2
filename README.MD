@@ -12,25 +12,25 @@
 ---
 
 ### Fission 
-Link to Fission 
-[GitHub Repository](https://github.com/BunniYubel/CloudComputingA2/tree/main/comp90024/fission) 
+
+[Link to Fission ](https://github.com/BunniYubel/CloudComputingA2/tree/main/comp90024/fission) 
 
 ---
 
 ### Elastic Search 
-Link to Elastic Search 
-[GitHub Repository](https://github.com/BunniYubel/CloudComputingA2/tree/main/comp90024/elastic) 
+
+[Link to Elastic Search ](https://github.com/BunniYubel/CloudComputingA2/tree/main/comp90024/elastic) 
 
 ---
 
 ### Data Preparation
-Link to Data 
-[GitHub Repository](https://github.com/BunniYubel/CloudComputingA2/tree/main/Datay) 
-Link to Weather Station ID Finder 
-[GitHub Repository](https://github.com/BunniYubel/CloudComputingA2/blob/main/find_station_json.py) 
+
+[Link to Data ](https://github.com/BunniYubel/CloudComputingA2/tree/main/Datay) 
+ 
+[Link to Weather Station ID Finder ](https://github.com/BunniYubel/CloudComputingA2/blob/main/find_station_json.py) 
 
 ---
 
 ### Data Analysis
-Link to Jupyter Notebook 
-[GitHub Repository](https://github.com/BunniYubel/CloudComputingA2/blob/main/Data_Visualization.ipynb)
+
+[Link to Jupyter Notebook ](https://github.com/BunniYubel/CloudComputingA2/blob/main/Data_Visualization.ipynb)
