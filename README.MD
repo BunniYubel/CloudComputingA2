@@ -43,6 +43,6 @@
 
 [Link to Documentation ](https://unimelbcloud-my.sharepoint.com/:w:/g/personal/cheomc_student_unimelb_edu_au/ETgTHbr69OhImq2xUGR99XABta-2ssyyXbMqks3MEEskZA?e=wVskOA)
  
-[Link to Presentation Video ](https://youtu.be/khho1LQ9ZGA) 
+[![Presentation ](https://i.sstatic.net/Vp2cE.png)](https://youtu.be/khho1LQ9ZGA)
 
 
