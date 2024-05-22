@@ -43,6 +43,6 @@
 
 [Link to Documentation ](https://unimelbcloud-my.sharepoint.com/:w:/g/personal/cheomc_student_unimelb_edu_au/ETgTHbr69OhImq2xUGR99XABta-2ssyyXbMqks3MEEskZA?e=wVskOA)
  
-[![Presentation ](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.perkins.org%2Fresource%2Fstudents-how-present-presentation%2F&psig=AOvVaw1HfwGPgf_UvhfZcqxzbxha&ust=1716425197793000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCLjMtqOEoIYDFQAAAAAdAAAAABAE)](https://youtu.be/khho1LQ9ZGA)
+[Link to Presentation ](https://youtu.be/khho1LQ9ZGA)
 
 
