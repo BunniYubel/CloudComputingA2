@@ -28,11 +28,6 @@ def fetch_weather_data(url):
         'Accept': 'application/json'
     }
     response = requests.get(url, headers=headers)
-    # current_app.logger.info(f"Request Headers: {response.request.headers}")
-    # current_app.logger.info(f"Response Status Code: {response.status_code}")
-    # current_app.logger.info(f"Response Headers: {response.headers}")
-    # current_app.logger.info(f"Response Body: {response.text}")
-    # time.sleep(0.1)
     if response.status_code == 200:
         return response.json()
     else:
@@ -43,7 +38,6 @@ def generate_id(obs):
 
 def main():
     current_app.logger.info("start!")
-    # return "early end!"
     directory = "Data"
     count = 0
     if not os.path.exists(directory):
@@ -55,8 +49,8 @@ def main():
     syd_id = "IDN60801"
     all_melbourne_id = "IDV60900"
     station_dictionary = {
-                "IDD60801": [94000, 94002, 94003,
-                      94100, 94102, 94105, 94106, 94108, 94109, 94110, 94112, 94114, 94116, 94117, 94119, 94120, 94121, 94122, 94125, 94127, 94128, 94130, 94131, 94132, 94134, 94135, 94137, 94139, 94140, 94141, 94143, 94147, 94150, 94152, 94153, 94161, 94162, 94212, 94216, 94217, 94220, 94221, 94222, 94225, 94229, 94231, 94232, 94234, 94236, 94237, 94238, 94239, 94242, 94248, 94255, 94258, 94321, 94322, 94323, 94324, 94325, 94326, 94327, 94328, 94457, 94461, 94462, 94463, 94466, 94474, 95101, 95111, 95121, 95122, 95142, 95146, 95214, 95215, 95322, 95323],
+                "IDD60801": ['94000', '94002', '94003',
+                      '94100', 94102, 94105, 94106, 94108, 94109, 94110, 94112, 94114, 94116, 94117, 94119, 94120, 94121, 94122, 94125, 94127, 94128, 94130, 94131, 94132, 94134, 94135, 94137, 94139, 94140, 94141, 94143, 94147, 94150, 94152, 94153, 94161, 94162, 94212, 94216, 94217, 94220, 94221, 94222, 94225, 94229, 94231, 94232, 94234, 94236, 94237, 94238, 94239, 94242, 94248, 94255, 94258, 94321, 94322, 94323, 94324, 94325, 94326, 94327, 94328, 94457, 94461, 94462, 94463, 94466, 94474, 95101, 95111, 95121, 95122, 95142, 95146, 95214, 95215, 95322, 95323],
         "IDQ60801": [94004, 94170, 94171, 94174,
                           94181, 94182, 94183, 94186, 94188, 94254, 94255, 94257, 94260, 94261, 94266, 94268, 94270, 94271, 94272, 94273, 94274, 94275, 94276, 94280, 94284, 94285, 94287, 94288, 94289, 94290, 94291, 94292, 94293, 94294, 94295, 94297, 94298, 94299, 94332, 94333, 94334, 94335, 94336, 94337, 94338, 94341, 94342, 94343, 94344, 94345, 94346, 94347, 94348, 94349, 94350, 94352, 94355, 94356, 94359, 94360, 94363, 94365, 94367, 94368, 94370, 94371, 94372, 94373, 94374, 94376, 94377, 94378, 94379, 94380, 94381, 94383, 94384, 94386, 94387, 94388, 94390, 94393, 94394, 94395, 94396, 94397, 94398, 94399, 94418, 94419, 94420, 94489, 94500, 94510, 94511, 94513, 94514, 94515, 94517, 94521, 94525, 94542, 94547, 94548, 94549, 94550, 94552, 94553, 94555, 94561, 94562, 94564, 94566, 94567, 94568, 94569, 94570, 94575, 94576, 94577, 94578, 94580, 94581, 94584, 94590, 94591, 94592, 94593, 94594, 95283, 95286, 95288, 95291, 95292, 95293, 95295, 95296, 95298, 95351, 95362, 95367, 95369, 95370, 95482, 95487, 95492, 95529, 95533, 95543, 95551, 95565, 95566, 95572, 95575, 95581, 95591],
         "IDS60801": [94474, 94476, 94648, 94651, 94653, 94654, 94655, 94656, 94657, 94659, 94660, 94661, 94662, 94663, 94665, 94666, 94668, 94672, 94673, 94674, 94676, 94677, 94678, 94679, 94680, 94681, 94682, 94683, 94684, 94685, 94690, 94804, 94806, 94807, 94808, 94809, 94811, 94813, 94814, 94816, 94817, 94820, 94821, 94822, 95458, 95480, 95481, 95649, 95652, 95654, 95658, 95659, 95660, 95661, 95662, 95663, 95664, 95666, 95667, 95668, 95669, 95670, 95671, 95674, 95675, 95676, 95677, 95678, 95679,
@@ -110,28 +104,15 @@ def main():
 
     }
     total_observations = 0
+    # go through each state and get request data of each station
     for area_id in station_dictionary.keys():
         current_app.logger.info("inside!")
-        # if id == vic_id:
-        #     loc = "VIC"
-        #     station = victoria_station
-        # else:
-        #     loc = "NSW"
-        #     station = sydney_station
         for area in station_dictionary[area_id]:
-            station = str(area)
-            t_url = source_url + area_id + "/" + area_id + "." + station + ".json"
+            station = str(area) 
+            t_url = source_url + area_id + "/" + area_id + "." + station + ".json" # build url
             data = fetch_weather_data(t_url)
-            # for obs in data['observations']['data']:
-            #     obs_id = generate_id(obs)
-            #     # Save or post data with the generated id
-            #     # Example: save_data_locally(obs, f"{obs_id}.json")
-                
-                
-            #     # For debugging
-            #     # return obs
-            station_observations = data['observations']['data']
-            post_data_server(station_observations)
+            station_observations = data['observations']['data'] # get just data for station
+            post_data_server(station_observations) # enqueue data to kafka
             total_observations += len(station_observations)
             current_app.logger.info(f"Got {len(station_observations)} observations from {area}. Total: {total_observations}!1")
 if __name__ == "__main__":
