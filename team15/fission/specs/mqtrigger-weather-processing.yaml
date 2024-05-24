@@ -1,0 +1,24 @@
+apiVersion: fission.io/v1
+kind: MessageQueueTrigger
+metadata:
+  creationTimestamp: null
+  name: weather-processing
+spec:
+  contentType: application/json
+  cooldownPeriod: 30
+  errorTopic: errors
+  functionref:
+    functionweights: null
+    name: wprocessor
+    type: name
+  maxReplicaCount: 300
+  maxRetries: 3
+  messageQueueType: kafka
+  metadata:
+    bootstrapServers: my-cluster-kafka-bootstrap.kafka.svc:9092
+    consumerGroup: my-group
+  minReplicaCount: 10
+  mqtkind: keda
+  pollingInterval: 1
+  respTopic: observations
+  topic: weather

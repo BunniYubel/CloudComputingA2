@@ -29,10 +29,6 @@ def fetch_weather_data(url,area):
         'Accept': 'application/json'
     }
     response = requests.get(url, headers=headers)
-    # current_app.logger.info(f"Request Headers: {response.request.headers}")
-    # current_app.logger.info(f"Response Status Code: {response.status_code}")
-    # current_app.logger.info(f"Response Headers: {response.headers}")
-    # current_app.logger.info(f"Response Body: {response.text}")
     time.sleep(0.05)
     if response.status_code == 200:
         return area
@@ -159,12 +155,7 @@ def main():
     queensland_station = [94004, 94170, 94171, 94174,
                           94181, 94182, 94183, 94186, 94188, 94254, 94255, 94257, 94260, 94261, 94266, 94268, 94270, 94271, 94272, 94273, 94274, 94275, 94276, 94280, 94284, 94285, 94287, 94288, 94289, 94290, 94291, 94292, 94293, 94294, 94295, 94297, 94298, 94299, 94332, 94333, 94334, 94335, 94336, 94337, 94338, 94341, 94342, 94343, 94344, 94345, 94346, 94347, 94348, 94349, 94350, 94352, 94355, 94356, 94359, 94360, 94363, 94365, 94367, 94368, 94370, 94371, 94372, 94373, 94374, 94376, 94377, 94378, 94379, 94380, 94381, 94383, 94384, 94386, 94387, 94388, 94390, 94393, 94394, 94395, 94396, 94397, 94398, 94399, 94418, 94419, 94420, 94489, 94500, 94510, 94511, 94513, 94514, 94515, 94517, 94521, 94525, 94542, 94547, 94548, 94549, 94550, 94552, 94553, 94555, 94561, 94562, 94564, 94566, 94567, 94568, 94569, 94570, 94575, 94576, 94577, 94578, 94580, 94581, 94584, 94590, 94591, 94592, 94593, 94594, 95283, 95286, 95288, 95291, 95292, 95293, 95295, 95296, 95298, 95351, 95362, 95367, 95369, 95370, 95482, 95487, 95492, 95529, 95533, 95543, 95551, 95565, 95566, 95572, 95575, 95581, 95591]
 
-    #
-    # for id in (vic_id, syd_id):
-    #     if id == vic_id:
-    #         station = victoria_station
-    #     else:
-    #         station = sydney_station
+
     for area in range(94000,96000):
         id = wa_id
         station = str(area)
@@ -173,11 +164,7 @@ def main():
         if did_find:
             find_station.append(did_find)
     print(find_station)
-        #print(data)
-        #save_data_locally(data, f"{id}-{station}") #save the data locally
-        #return post_data_server(data) #post the data to the server
-        #return data #return the data, useful for terminal debugging
-        #return 'OK'
+
 
 if __name__ == "__main__":
     main()

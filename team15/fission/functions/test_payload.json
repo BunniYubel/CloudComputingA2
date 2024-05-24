@@ -1,0 +1,8 @@
+{
+    "stationid": "12345",
+    "timestamp": "2023-10-01T12:00:00Z",
+    "temperature": 22.5,
+    "humidity": 60,
+    "wind_speed": 5.5,
+    "weather_condition": "Sunny"
+  }

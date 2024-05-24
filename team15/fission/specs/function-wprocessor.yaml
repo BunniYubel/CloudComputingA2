@@ -1,0 +1,52 @@
+include:
+- functions/wprocessor.js
+kind: ArchiveUploadSpec
+name: functions-wprocessor-js-X51a
+
+---
+apiVersion: fission.io/v1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: wprocessor-4e7511d1-b7ef-49f4-92cf-2d774a6ba78c
+spec:
+  deployment:
+    checksum: {}
+    type: url
+    url: archive://functions-wprocessor-js-X51a
+  environment:
+    name: nodejs
+    namespace: ""
+  source:
+    checksum: {}
+status:
+  buildstatus: none
+  lastUpdateTimestamp: "2024-05-20T00:24:22Z"
+
+---
+apiVersion: fission.io/v1
+kind: Function
+metadata:
+  creationTimestamp: null
+  name: wprocessor
+spec:
+  InvokeStrategy:
+    ExecutionStrategy:
+      ExecutorType: poolmgr
+      MaxScale: 5 #max. pod number
+      MinScale: 1 #min. pod number
+      SpecializationTimeout: 120
+      TargetCPUPercent: 80 #target CPU utilization for HPA scaling
+    StrategyType: execution
+  concurrency: 500
+  environment:
+    name: nodejs
+    namespace: ""
+  functionTimeout: 60
+  idletimeout: 120
+  package:
+    packageref:
+      name: wprocessor-4e7511d1-b7ef-49f4-92cf-2d774a6ba78c
+      namespace: ""
+  requestsPerPod: 1
+  resources: {}
